@@ -55,35 +55,19 @@ function validate(form) {
   }
 
   if (nameValidated === false) {
-    var p = document.createElement('p')
-    p.innerHTML = 'You have entered an invalid name.'
-    p.classList.add('error')
-    p.style.color = 'red'
-    name.parentElement.appendChild(p)
+    errorMessage(name)
   }
 
   if (emailValidated === false) {
-    var p = document.createElement('p')
-    p.innerHTML = 'You have entered an invalid email.'
-    p.style.color = 'red'
-    p.classList.add('error')
-    email.parentElement.appendChild(p)
+    errorMessage(email)
   }
 
   if (phoneValidated === false) {
-    var p = document.createElement('p')
-    p.innerHTML = 'You have entered an invalid phone number.'
-    p.classList.add('error')
-    p.style.color = 'red'
-    phone.parentElement.appendChild(p)
+    errorMessage(phone)
   }
 
   if (commentValidated === false) {
-    var p = document.createElement('p')
-    p.innerHTML = 'You have entered an invalid comment.'
-    p.classList.add('error')
-    p.style.color = 'red'
-    comment.parentElement.appendChild(p)
+    errorMessage(comment)
   }
 
   //If all of the inputs validated, return true
@@ -93,4 +77,13 @@ function validate(form) {
   else {
     return false
   }
+}
+
+//Error message creation function
+function errorMessage (field) {
+  var p = document.createElement('p')
+  p.innerHTML = 'You have entered an invalid field.'
+  p.classList.add('error')
+  p.style.color = 'red'
+  field.parentElement.appendChild(p)
 }
